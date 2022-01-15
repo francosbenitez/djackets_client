@@ -11,7 +11,9 @@
         <h3>{{ product.name }}</h3>
         <p class="">${{ product.price }}</p>
 
-        View details
+        <router-link :to="product.get_absolute_url">
+          View details 
+        </router-link>
       </div>
     </div>
   </div>
