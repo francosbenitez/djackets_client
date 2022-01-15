@@ -1,29 +1,23 @@
 <template>
   <div class="home">
     Home
-
-    <div class="" v-for="product in latestProducts" :key="product.id">
-       <div class="">
-        <figure>
-          <img :src="product.get_thumbnail">
-        </figure>
-
-        <h3>{{ product.name }}</h3>
-        <p class="">${{ product.price }}</p>
-
-        <router-link :to="product.get_absolute_url">
-          View details 
-        </router-link>
-      </div>
-    </div>
+    <ProductBox 
+      v-for="product in latestProducts" 
+      :key="product.id"
+      :product="product"
+    />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import ProductBox from '@/components/ProductBox'
 
 export default {
   name: 'Home',
+  components: {
+    ProductBox
+  },
   data() {
     return {
       latestProducts: []
