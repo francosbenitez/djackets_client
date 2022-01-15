@@ -25,7 +25,7 @@
         </div>
 
         <div class="">
-          <a class="button">Add to cart</a>
+          <button class="" @click="addToCart">Add to cart</button>
         </div>
 
        </div>
@@ -60,6 +60,19 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    addToCart() {
+      if (isNaN(this.quantity) || this.quantity < 1) {
+        this.quantity = 1
+      }
+
+      const item = {
+        product: this.product,
+        quantity: this.quantity
+      }
+
+      // We call the addToCart() function inside the mutations
+      this.$store.commit('addToCart', item)
     }
   }
 }
