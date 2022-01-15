@@ -1,30 +1,28 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Hello World</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="wrapper">
+
+    <router-link to="/">Djackets</router-link>
+    <router-link to="/summer">Summer</router-link>
+    <router-link to="/winter">Winter</router-link>
+    
+    <div class="buttons">
+      <router-link to="/log-in">Log in</router-link>
+      <router-link to="/cart">
+        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+        <span>Cart</span>
+      </router-link>
+    </div>
+
+    <section class="section">
+      <router-view />
+    </section>
+
+    <footer class="footer">
+      <p class="">Copyright (c) 2022</p>
+    </footer>
+    
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
