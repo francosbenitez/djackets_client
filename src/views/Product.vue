@@ -48,11 +48,15 @@ export default {
     this.getProduct()
   },
   methods: {
-    getProduct() {
+    // To make sure that we don't call 'false' before it's finished,
+    // we add 'async'
+    async getProduct() {
+      this.$store.commit('setIsLoading', true)
+
       const category_slug = this.$route.params.category_slug
       const product_slug = this.$route.params.product_slug
 
-      axios
+      await axios
         .get(`/api/v1/products/${category_slug}/${product_slug}`)
         .then(response => {
           this.product = response.data
@@ -60,6 +64,8 @@ export default {
         .catch(error => {
           console.log(error)
         })
+
+      this.$store.commit('setIsLoading', false)
     },
     addToCart() {
       if (isNaN(this.quantity) || this.quantity < 1) {
