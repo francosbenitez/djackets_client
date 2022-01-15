@@ -1,6 +1,10 @@
 <template>
   <div id="wrapper">
 
+    <form method="get" action="/search">
+      <input type="text" name="query">
+    </form>
+
     <router-link to="/">Djackets</router-link>
     <router-link to="/summer">Summer</router-link>
     <router-link to="/winter">Winter</router-link>
